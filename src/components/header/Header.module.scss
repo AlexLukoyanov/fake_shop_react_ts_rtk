@@ -1,18 +1,18 @@
 .header {
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  width: 100%;
   background-color: #ffff;
   box-shadow: 0 3px 11px 0 rgb(0 0 0 / 15%);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 .header_wrapper {
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 10px 0;
-  align-items: center;
 }
 
 .header_logo {
@@ -24,13 +24,13 @@
   }
 
   h1 {
-    margin: 0 0 0 10px;
     font-size: 20px;
+    margin: 0 0 0 10px;
 
     &:hover {
       color: var(--hoverColor);
-      transition: 0.3s all ease;
       cursor: pointer;
+      transition: 0.3s all ease;
     }
   }
 

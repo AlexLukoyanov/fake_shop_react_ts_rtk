@@ -27,7 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "stylelint": "stylelint \"**/*.scss\" --fix"
+    "stylelint": "stylelint \"src/**/*.scss\" --color",
+    "stylelint:fix": "stylelint \"src/**/*.scss\" --fix --color"
   },
   "eslintConfig": {
     "extends": [
@@ -50,6 +51,10 @@
   "devDependencies": {
     "eslint": "^8.11.0",
     "stylelint": "^14.6.0",
-    "stylelint-config-standard-scss": "^3.0.0"
+    "stylelint-config-recommended": "^7.0.0",
+    "stylelint-config-recommended-scss": "^6.0.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-order": "^5.0.0"
   }
 }

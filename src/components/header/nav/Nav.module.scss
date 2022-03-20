@@ -10,8 +10,8 @@
 
     &:hover {
       color: var(--hoverColor);
-      transition: 0.3s all ease;
       cursor: pointer;
+      transition: 0.3s all ease;
     }
   }
 
@@ -26,17 +26,17 @@
   position: relative;
 
   div {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    color: #fff;
-    width: 18px;
-    height: 18px;
-    font-size: 9px;
-    top: -11px;
-    right: -14px;
     align-items: center;
     background: #998e78;
     border-radius: 50px;
+    color: #fff;
+    display: flex;
+    font-size: 9px;
+    height: 18px;
+    justify-content: center;
+    position: absolute;
+    right: -14px;
+    top: -11px;
+    width: 18px;
   }
 }
