@@ -6,7 +6,10 @@ const Nav = () => {
     <nav className={styles.nav}>
       <ul>
         <li>
-          <FiShoppingCart />
+          <div className={styles.counter}>
+            <FiShoppingCart />
+            <div>4</div>
+          </div>
         </li>
         <li>
           <FiUser />
