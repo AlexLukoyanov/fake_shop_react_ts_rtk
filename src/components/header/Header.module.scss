@@ -1,0 +1,40 @@
+.header {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  background-color: #ffff;
+  box-shadow: 0 3px 11px 0 rgb(0 0 0 / 15%);
+}
+
+.header_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 0;
+  align-items: center;
+}
+
+.header_logo {
+  display: flex;
+  flex-direction: row;
+
+  span {
+    font-size: 20px;
+  }
+
+  h1 {
+    margin: 0 0 0 10px;
+    font-size: 20px;
+  }
+
+  @media (min-width: 768px) {
+    span {
+      font-size: 25px;
+    }
+
+    h1 {
+      font-size: 25px;
+    }
+  }
+}
