@@ -1,0 +1,24 @@
+.category_button {
+  padding: 19px 65px;
+  font-weight: 500;
+  font-size: 17px;
+  background: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+  transition: 0.3s all ease;
+
+  &:hover {
+    color: #fff;
+    background: #000;
+  }
+}
+
+.active_category {
+  padding: 19px 65px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 17px;
+  background: #000;
+  border: 1px solid #000;
+  cursor: pointer;
+}
