@@ -4,8 +4,6 @@ import FiltersCategory from "./filters-category/FiltersCategory";
 const HomePage = () => {
   const category = useAppSelector((state) => state.categoriesSlice);
 
-  console.log(category);
-
   return (
     <div className="page">
       <div className="main_photo">
@@ -13,6 +11,7 @@ const HomePage = () => {
       </div>
       <div className="container">
         <h1>Shop</h1>
+
         <FiltersCategory />
       </div>
     </div>
