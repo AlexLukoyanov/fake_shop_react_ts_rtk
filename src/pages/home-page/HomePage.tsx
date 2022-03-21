@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useAppSelector } from "../../hooks/redux";
+import CardList from "./card-list/CardList";
 import FiltersCategory from "./filters-category/FiltersCategory";
 
 const HomePage = () => {
@@ -13,6 +15,7 @@ const HomePage = () => {
         <h1>Shop</h1>
 
         <FiltersCategory />
+        <CardList />
       </div>
     </div>
   );
