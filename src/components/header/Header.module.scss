@@ -1,16 +1,16 @@
 .header {
-  background-color: #ffff;
-  box-shadow: 0 3px 11px 0 rgb(0 0 0 / 15%);
   position: fixed;
   top: 0;
-  width: 100%;
   z-index: 100;
+  width: 100%;
+  background-color: #ffff;
+  box-shadow: 0 3px 11px 0 rgb(0 0 0 / 15%);
 }
 
 .header_wrapper {
-  align-items: center;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   padding: 10px 0;
 }
@@ -24,11 +24,11 @@
   }
 
   h1 {
-    font-size: 20px;
     margin: 0 0 0 10px;
+    font-size: 20px;
 
     &:hover {
-      color: var(--hoverColor);
+      color: var(--hover-color);
       cursor: pointer;
       transition: 0.3s all ease;
     }

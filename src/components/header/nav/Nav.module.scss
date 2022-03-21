@@ -5,11 +5,11 @@
   }
 
   li {
-    font-size: 20px;
     margin-left: 20px;
+    font-size: 20px;
 
     &:hover {
-      color: var(--hoverColor);
+      color: var(--hover-color);
       cursor: pointer;
       transition: 0.3s all ease;
     }
@@ -26,17 +26,17 @@
   position: relative;
 
   div {
+    position: absolute;
+    top: -11px;
+    right: -14px;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    color: #fff;
+    font-size: 9px;
     background: #998e78;
     border-radius: 50px;
-    color: #fff;
-    display: flex;
-    font-size: 9px;
-    height: 18px;
-    justify-content: center;
-    position: absolute;
-    right: -14px;
-    top: -11px;
-    width: 18px;
   }
 }
