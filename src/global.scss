@@ -36,13 +36,36 @@ li {
 
 .page {
   flex: 1 1 auto;
-  margin-top: 50px;
+  margin-top: 56px;
+
+  @media (min-width: 768px) {
+    margin-top: 60px;
+  }
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 5px;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 110%;
+
+  @media (min-width: 768px) {
+    font-size: 55px;
+  }
+}
+
+.main_photo {
+  margin-bottom: 50px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 100px;
+  }
 }
 
 :root {

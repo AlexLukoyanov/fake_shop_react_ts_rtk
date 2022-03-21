@@ -1,6 +1,6 @@
-import { CgShoppingBag } from 'react-icons/cg';
-import Nav from './nav/Nav';
-import styles from './Header.module.scss';
+import { CgShoppingBag } from "react-icons/cg";
+import Nav from "./nav/Nav";
+import styles from "./Header.module.scss";
 
 const Header = () => {
   return (
@@ -11,7 +11,7 @@ const Header = () => {
             <span>
               <CgShoppingBag />
             </span>
-            <h1>Fake shop</h1>
+            <h2>Fake shop</h2>
           </div>
           <Nav />
         </div>
