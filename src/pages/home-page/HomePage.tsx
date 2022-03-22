@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAppSelector } from "../../hooks/redux";
 import CardList from "./card-list/CardList";
+import CountProducts from "./count-products/CountProducts";
 import FiltersCategory from "./filters-category/FiltersCategory";
 import ShowMoreButton from "./show-more-button/ShowMoreButton";
 
@@ -17,7 +18,9 @@ const HomePage = () => {
         <h1>Shop</h1>
 
         <FiltersCategory />
+        <CountProducts />
         <CardList limitProducts={limitProducts} />
+        <CountProducts />
         <ShowMoreButton setLimitProducts={setLimitProducts} />
       </div>
     </div>
