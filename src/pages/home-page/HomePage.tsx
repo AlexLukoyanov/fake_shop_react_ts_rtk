@@ -25,7 +25,7 @@ const HomePage = () => {
         {!isLoading && category === "" && <CardSkeleton />}
 
         <CountProducts />
-        <ShowMoreButton setLimitProducts={setLimitProducts} />
+        {isLoading && <ShowMoreButton setLimitProducts={setLimitProducts} />}
       </div>
     </div>
   );
