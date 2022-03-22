@@ -11,7 +11,7 @@ const Header = () => {
             <span>
               <CgShoppingBag />
             </span>
-            <h2>Fake shop</h2>
+            <h2>Fake store</h2>
           </div>
           <Nav />
         </div>

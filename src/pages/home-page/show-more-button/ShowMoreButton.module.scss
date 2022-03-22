@@ -1,0 +1,15 @@
+.show_more_button {
+  margin-bottom: 80px;
+  padding: 10px 40px;
+  font-weight: 500;
+  font-size: 20px;
+  background: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+  transition: 0.3s all ease;
+
+  &:hover {
+    color: #fff;
+    background: #000;
+  }
+}

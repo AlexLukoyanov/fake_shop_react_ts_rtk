@@ -1,19 +1,22 @@
-import { useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import { useAppSelector } from "../../../hooks/redux";
 import CardItem from "./card-item/CardItem";
 import styles from "./CardList.module.scss";
 import { useAppDispatch } from "./../../../hooks/redux";
 import { fetchProducts } from "./../../../store/products/products.slice";
 
-const CardList = () => {
-  const [limit] = useState(10);
+type CardListProps = {
+  limitProducts: number;
+};
+
+const CardList: FC<CardListProps> = ({ limitProducts }) => {
   const dispatch = useAppDispatch();
+  const { products } = useAppSelector((state) => state.productsSlice);
 
   useEffect(() => {
-    dispatch(fetchProducts(limit));
-  }, [limit]);
+    dispatch(fetchProducts(limitProducts));
+  }, [limitProducts]);
 
-  const { products } = useAppSelector((state) => state.productsSlice);
   return (
     <ul className={styles.card_list}>
       {products.map((item) => (
