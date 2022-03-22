@@ -5,10 +5,12 @@ import CountProducts from "./count-products/CountProducts";
 import FiltersCategory from "./filters-category/FiltersCategory";
 import ShowMoreButton from "./show-more-button/ShowMoreButton";
 import CardSkeleton from "./card-skeleton/CardSkeleton";
+import Loader from "../../components/ui/loader/Loader";
 
 const HomePage = () => {
   const [limitProducts, setLimitProducts] = useState<number>(8);
   const { isLoading } = useAppSelector((state) => state.productsSlice);
+  const category = useAppSelector((state) => state.categoriesSlice);
 
   return (
     <div className="page">
@@ -20,7 +22,8 @@ const HomePage = () => {
         <FiltersCategory />
         <CountProducts />
         <CardList limitProducts={limitProducts} />
-        {!isLoading && <CardSkeleton />}
+        {!isLoading && category === "" && <CardSkeleton />}
+
         <CountProducts />
         <ShowMoreButton setLimitProducts={setLimitProducts} />
       </div>
