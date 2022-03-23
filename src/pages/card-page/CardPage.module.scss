@@ -86,6 +86,11 @@
       color: #fff;
       background: #509498;
     }
+
+    &:disabled {
+      color: #ffff;
+      background: #509498;
+    }
   }
 
   a {

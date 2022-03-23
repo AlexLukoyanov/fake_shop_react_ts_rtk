@@ -1,13 +1,24 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../../../hooks/redux";
 import { IProduct } from "./../../../../store/products/products.type";
 import styles from "./CardItem.module.scss";
+import { useAppDispatch } from "./../../../../hooks/redux";
+import { addToCart } from "../../../../store/cart/cart.slice";
 
 type ItemPtops = {
   item: IProduct;
 };
 
 const CardItem: FC<ItemPtops> = ({ item }) => {
+  const cart = useAppSelector((state) => state.cartSlice);
+  const productMatching = cart.some((el) => el.id === item.id);
+  const dispatch = useAppDispatch();
+
+  const addItemToCart = () => {
+    dispatch(addToCart(item));
+  };
+
   return (
     <li className={styles.card_item}>
       <Link to={`/card/${item.id}`}>
@@ -23,7 +34,12 @@ const CardItem: FC<ItemPtops> = ({ item }) => {
 
       <div>
         <p>$ {item.price}</p>
-        <button>Add to Cart</button>
+        <button
+          disabled={productMatching}
+          onClick={() => !productMatching && addItemToCart()}
+        >
+          {productMatching ? "Product in Cart" : "Add to Cart"}
+        </button>
       </div>
     </li>
   );

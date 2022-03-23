@@ -4,12 +4,19 @@ import { useAppDispatch, useAppSelector } from "./../../hooks/redux";
 import { fetchProduct } from "./../../store/products/product.slice";
 import Loader from "./../../components/ui/loader/Loader";
 import styles from "./CardPage.module.scss";
+import { addToCart } from "../../store/cart/cart.slice";
 
 const CardPage = () => {
   const { id } = useParams();
   const number = Number(id);
   const dispatch = useAppDispatch();
   const { product, isLoading } = useAppSelector((state) => state.productSlice);
+  const cart = useAppSelector((state) => state.cartSlice);
+  const productMatching = cart.some((el) => el.id === product.id);
+
+  const addItemToCart = () => {
+    dispatch(addToCart(product));
+  };
 
   useEffect(() => {
     dispatch(fetchProduct(number));
@@ -30,7 +37,12 @@ const CardPage = () => {
             <h4> $ {product.price}</h4>
             <p>{product.description}</p>
             <div>
-              <button>Add to Cart</button>
+              <button
+                disabled={productMatching}
+                onClick={() => !productMatching && addItemToCart()}
+              >
+                {productMatching ? "Product in Cart" : "Add to Cart"}
+              </button>
 
               <Link to={"/cart"}>Go to Cart</Link>
             </div>
