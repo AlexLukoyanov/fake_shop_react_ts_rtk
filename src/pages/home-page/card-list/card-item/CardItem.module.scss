@@ -50,13 +50,14 @@
 
   button {
     padding: 10px 20px;
-    color: #fff;
-    background: #6e9c9f;
-    border: none;
+    color: #6e9c9f;
+    background: #fff;
+    border: 1px solid #6e9c9f;
     cursor: pointer;
     transition: 0.3s all ease;
 
     &:hover {
+      color: #ffff;
       background: #509498;
     }
   }
