@@ -82,15 +82,26 @@
     cursor: pointer;
     transition: 0.3s all ease;
 
-    &:nth-child(2n) {
-      margin-left: 20px;
-      color: #fff;
-      background: #6e9c9f;
-    }
-
     &:hover {
       color: #fff;
       background: #509498;
+    }
+  }
+
+  a {
+    display: inline-block;
+    margin-left: 20px;
+    padding: 15px 40px;
+    color: #fff;
+    font-size: 14px;
+    background: #6e9c9f;
+    border: 1px solid #6e9c9f;
+    cursor: pointer;
+    transition: 0.3s all ease;
+
+    &:hover {
+      color: #fff;
+      background: var(--hover-color);
     }
   }
   @media (min-width: 560px) {
@@ -120,6 +131,11 @@
 
     button {
       margin-right: 30px;
+      padding: 20px 60px;
+      font-size: 17px;
+    }
+
+    a {
       padding: 20px 60px;
       font-size: 17px;
     }

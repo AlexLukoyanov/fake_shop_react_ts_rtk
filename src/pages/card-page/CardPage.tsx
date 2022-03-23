@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "./../../hooks/redux";
 import { fetchProduct } from "./../../store/products/product.slice";
@@ -31,7 +31,8 @@ const CardPage = () => {
             <p>{product.description}</p>
             <div>
               <button>Add to Cart</button>
-              <button>Go to Cart</button>
+
+              <Link to={"/cart"}>Go to Cart</Link>
             </div>
           </div>
         </div>
