@@ -7,7 +7,9 @@ interface CartState {
 }
 
 const initialState: CartState = {
-  products: [],
+  products: localStorage.getItem("cartProducts")
+    ? JSON.parse(localStorage.getItem("cartProducts") || "")
+    : [],
   totalPrice: 0,
 };
 
@@ -21,6 +23,8 @@ export const cartSlice = createSlice({
         quantity: 1,
         total: action.payload.price,
       });
+
+      localStorage.setItem("cartProducts", JSON.stringify(state.products));
     },
   },
 });
