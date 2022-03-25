@@ -17,7 +17,6 @@ type CartItemProps = {
 
 const CartItem: FC<CartItemProps> = ({ item }) => {
   const dispatch = useAppDispatch();
-  const { products } = useAppSelector((state) => state.cartSlice);
 
   const deleteProduct = () => {
     dispatch(deleteFromCart(item.id));
