@@ -8,7 +8,7 @@ const Checkout = () => {
       <div>
         <p>
           {" "}
-          <span>Итог:</span> $ {totalPrice.toFixed(2)}
+          <span>Total:</span> $ {totalPrice.toFixed(2)}
         </p>
         <button>Checkout</button>
       </div>

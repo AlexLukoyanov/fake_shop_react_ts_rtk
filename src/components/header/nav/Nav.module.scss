@@ -27,10 +27,11 @@
 .counter {
   position: relative;
 
-  div {
+  b {
     position: absolute;
     top: -11px;
     right: -14px;
+    display: block;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,7 +39,30 @@
     height: 18px;
     color: #fff;
     font-size: 9px;
-    background: #998e78;
+    background: #997878;
     border-radius: 50px;
   }
+}
+
+.nav_hover_cart {
+  display: none;
+  @media (min-width: 990px) {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: 450px;
+    min-height: 100px;
+    background: #fff;
+    box-shadow: 0 2px 10px 0 rgb(0 0 0 / 10%);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  }
+}
+
+.nav li:hover .nav_hover_cart {
+  visibility: visible;
+  opacity: 1;
 }
