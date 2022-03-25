@@ -1,5 +1,22 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IProduct } from "./../products/products.type";
+import axios from "axios";
+
+export const postOrder = createAsyncThunk(
+  "cart/postOrder",
+  async (order: CartState, thunkApi) => {
+    try {
+      await axios.post(
+        "https://623df75fdf20a75d53c246ae.mockapi.io/order",
+        order
+      );
+
+      thunkApi.dispatch(sendOrder());
+    } catch (e) {
+      return thunkApi.rejectWithValue("Уrror sending order");
+    }
+  }
+);
 
 interface CartState {
   products: IProduct[];
@@ -67,6 +84,10 @@ export const cartSlice = createSlice({
 
       return state;
     },
+    sendOrder: (state) => {
+      state.products = [];
+      localStorage.setItem("cartItems", JSON.stringify(state));
+    },
   },
 });
 
@@ -76,5 +97,6 @@ export const {
   incrementProduct,
   decrementProduct,
   getTotalPrice,
+  sendOrder,
 } = cartSlice.actions;
 export default cartSlice.reducer;

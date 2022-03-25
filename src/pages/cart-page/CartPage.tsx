@@ -1,4 +1,3 @@
-import styles from "./CartPage.module.scss";
 import CartList from "./cart-list/CartList";
 import Checkout from "./checkout/Checkout";
 import CartEmpty from "../../components/cart-empty/CartEmpty";
