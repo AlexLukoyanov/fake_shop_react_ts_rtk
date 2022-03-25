@@ -11,8 +11,8 @@ const CardPage = () => {
   const number = Number(id);
   const dispatch = useAppDispatch();
   const { product, isLoading } = useAppSelector((state) => state.productSlice);
-  const cart = useAppSelector((state) => state.cartSlice);
-  const productMatching = cart.some((el) => el.id === product.id);
+  const { products } = useAppSelector((state) => state.cartSlice);
+  const productMatching = products.some((el) => el.id === product.id);
 
   const addItemToCart = () => {
     dispatch(addToCart(product));

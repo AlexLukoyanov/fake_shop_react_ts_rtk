@@ -11,8 +11,8 @@ type ItemPtops = {
 };
 
 const CardItem: FC<ItemPtops> = ({ item }) => {
-  const cart = useAppSelector((state) => state.cartSlice);
-  const productMatching = cart.some((el) => el.id === item.id);
+  const { products } = useAppSelector((state) => state.cartSlice);
+  const productMatching = products.some((el) => el.id === item.id);
   const dispatch = useAppDispatch();
 
   const addItemToCart = () => {

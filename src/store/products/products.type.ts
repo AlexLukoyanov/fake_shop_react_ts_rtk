@@ -11,4 +11,6 @@ export interface IProduct {
   category: string;
   image: string;
   rating: IRating;
+  quantity: number;
+  total: number;
 }
