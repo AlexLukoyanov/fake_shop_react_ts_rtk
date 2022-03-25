@@ -32,8 +32,35 @@ export const cartSlice = createSlice({
       );
       localStorage.setItem("cartProducts", JSON.stringify(state.products));
     },
+    incrementProduct: (state, action: PayloadAction<number>) => {
+      state.products = state.products.map((item) =>
+        item.id === action.payload
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+              total: item.price * (item.quantity + 1),
+            }
+          : item
+      );
+
+      localStorage.setItem("cartProducts", JSON.stringify(state.products));
+    },
+    decrementProduct: (state, action: PayloadAction<number>) => {
+      state.products = state.products.map((item) =>
+        item.id === action.payload
+          ? {
+              ...item,
+              quantity: item.quantity - 1,
+              total: item.price * (item.quantity - 1),
+            }
+          : item
+      );
+
+      localStorage.setItem("cartProducts", JSON.stringify(state.products));
+    },
   },
 });
 
-export const { addToCart, deleteFromCart } = cartSlice.actions;
+export const { addToCart, deleteFromCart, incrementProduct, decrementProduct } =
+  cartSlice.actions;
 export default cartSlice.reducer;

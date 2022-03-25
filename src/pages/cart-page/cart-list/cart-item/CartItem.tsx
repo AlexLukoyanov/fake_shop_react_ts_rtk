@@ -4,8 +4,12 @@ import { IProduct } from "./../../../../store/products/products.type";
 import { Link } from "react-router-dom";
 
 import { AiOutlineDelete } from "react-icons/ai";
-import { useAppDispatch } from "./../../../../hooks/redux";
-import { deleteFromCart } from "../../../../store/cart/cart.slice";
+import { useAppDispatch, useAppSelector } from "./../../../../hooks/redux";
+import {
+  decrementProduct,
+  deleteFromCart,
+  incrementProduct,
+} from "../../../../store/cart/cart.slice";
 
 type CartItemProps = {
   item: IProduct;
@@ -13,9 +17,18 @@ type CartItemProps = {
 
 const CartItem: FC<CartItemProps> = ({ item }) => {
   const dispatch = useAppDispatch();
+  const { products } = useAppSelector((state) => state.cartSlice);
 
   const deleteProduct = () => {
     dispatch(deleteFromCart(item.id));
+  };
+
+  const incrementCount = () => {
+    dispatch(incrementProduct(item.id));
+  };
+
+  const decrementCount = () => {
+    dispatch(decrementProduct(item.id));
   };
   return (
     <div className={styles.cart_item}>
@@ -26,14 +39,18 @@ const CartItem: FC<CartItemProps> = ({ item }) => {
         <h3>{item.category}</h3>
         <h2>{item.title}</h2>
         <span>
-          $ {item.total} x {item.quantity}
+          {item.price} x {item.quantity} = $ {item.total.toFixed(2)}
         </span>
       </div>
       <div className={styles.cart_count}>
         <div>
-          <button>+</button>
-          <span>1</span>
-          <button>-</button>
+          <button disabled={item.quantity === 1} onClick={decrementCount}>
+            -
+          </button>
+          <span>{item.quantity}</span>
+          <button disabled={item.quantity === 10} onClick={incrementCount}>
+            +
+          </button>
         </div>
       </div>
 
