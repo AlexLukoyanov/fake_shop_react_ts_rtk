@@ -21,6 +21,7 @@ export const postOrder = createAsyncThunk(
 interface CartState {
   products: IProduct[];
   totalPrice: number;
+  userId: string;
 }
 
 const initialState: CartState = {
@@ -28,6 +29,9 @@ const initialState: CartState = {
     ? JSON.parse(localStorage.getItem("cartProducts") || "")
     : [],
   totalPrice: 0,
+  userId: localStorage.getItem("userId")
+    ? JSON.parse(localStorage.getItem("userId") || "")
+    : "",
 };
 
 export const cartSlice = createSlice({
@@ -43,6 +47,17 @@ export const cartSlice = createSlice({
 
       localStorage.setItem("cartProducts", JSON.stringify(state.products));
     },
+    setUserId: (state, action: PayloadAction<string>) => {
+      state.userId = action.payload;
+
+      localStorage.setItem("userId", JSON.stringify(state.userId));
+    },
+
+    removeUserId: (state) => {
+      state.userId = "";
+      localStorage.setItem("userId", JSON.stringify(state.userId));
+    },
+
     deleteFromCart: (state, action: PayloadAction<number>) => {
       state.products = state.products.filter(
         (item) => item.id !== action.payload
@@ -98,5 +113,7 @@ export const {
   decrementProduct,
   getTotalPrice,
   sendOrder,
+  setUserId,
+  removeUserId,
 } = cartSlice.actions;
 export default cartSlice.reducer;

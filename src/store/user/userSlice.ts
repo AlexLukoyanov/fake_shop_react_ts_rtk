@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  email: "",
-  token: "",
-  id: "",
-};
+const initialState = localStorage.getItem("user")
+  ? JSON.parse(localStorage.getItem("user") || "")
+  : {
+      email: "",
+      token: "",
+      id: "",
+    };
 
 export const userSlice = createSlice({
   name: "user",
@@ -14,11 +16,15 @@ export const userSlice = createSlice({
       state.email = action.payload.email;
       state.token = action.payload.token;
       state.id = action.payload.id;
+
+      localStorage.setItem("user", JSON.stringify(state));
     },
     removeUser: (state) => {
       state.email = "";
       state.token = "";
       state.id = "";
+
+      localStorage.setItem("user", JSON.stringify(state));
     },
   },
 });

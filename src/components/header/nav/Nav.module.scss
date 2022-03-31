@@ -9,7 +9,7 @@
     font-size: 20px;
 
     a {
-      &:hover {
+      & :hover {
         color: var(--hover-color);
         cursor: pointer;
         transition: 0.3s all ease;
@@ -65,4 +65,14 @@
 .nav li:hover .nav_hover_cart {
   visibility: visible;
   opacity: 1;
+}
+
+.nav_sign_out {
+  cursor: pointer;
+
+  &:hover {
+    color: var(--hover-color);
+    cursor: pointer;
+    transition: 0.3s all ease;
+  }
 }
