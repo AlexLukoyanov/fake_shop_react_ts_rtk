@@ -4,6 +4,7 @@ import categoriesSlice from "./categories/categories.slice";
 import filteredProductsSlice from "./products/filtered.products.slice";
 import productSlice from "./products/product.slice";
 import cartSlice from "./cart/cart.slice";
+import userSlice from "./user/userSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     filteredProductsSlice,
     productSlice,
     cartSlice,
+    userSlice,
   },
 });
 
