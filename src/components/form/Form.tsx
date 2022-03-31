@@ -1,46 +1,85 @@
-import { FC, useState } from "react";
+import { FC } from "react";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import styles from "./Form.module.scss";
 
 type FormProps = {
   title: string;
-  handleSubmit: (email: string, pass: string) => void;
+  getDataForm: (email: string, pass: string) => void;
+  firebaseError: string;
 };
 
-const Form: FC<FormProps> = ({ title, handleSubmit }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const Form: FC<FormProps> = ({ title, getDataForm, firebaseError }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({ mode: "onBlur" });
 
-  const handleEmail: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    setEmail(e.target.value);
+  const userEmail = {
+    required: "Required field.",
+    pattern: {
+      value:
+        /^([A-Z|a-z|0-9](\.|_){0,1})+[A-Z|a-z|0-9]\@([A-Z|a-z|0-9])+((\.){0,1}[A-Z|a-z|0-9]){2}\.[a-z]{2,3}$/gm,
+      message: "The e-mail address you entered is incorrect.",
+    },
   };
 
-  const handlePass: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    setPassword(e.target.value);
+  const userPassword = {
+    required: "Required field.",
+    minLength: {
+      value: 8,
+      message: "Minimum 8 characters.",
+    },
+    maxLength: {
+      value: 16,
+      message: "Maximum 16 characters.",
+    },
+    pattern: {
+      value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/gm,
+      message: `Minimum 8 characters, 1 letter, 1 digit.`,
+    },
   };
-  const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
-    e.preventDefault();
-    handleSubmit(email, password);
+
+  const onSubmit: SubmitHandler<FieldValues> = ({ email, password }) => {
+    getDataForm(email, password);
+
+    reset();
   };
   return (
-    <form className={styles.form} onSubmit={onSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <div>
         <input
           type="email"
-          placeholder="Email"
-          value={email}
-          onChange={handleEmail}
+          placeholder="E-mail"
+          {...register("email", userEmail)}
         />
+        <div>
+          {errors?.email && (
+            <span className={styles.form_error}>{errors?.email?.message}</span>
+          )}
+        </div>
       </div>
+
       <div>
         <input
           type="password"
           placeholder="Password"
-          value={password}
-          onChange={handlePass}
+          {...register("password", userPassword)}
         />
+        <div>
+          {errors?.password && (
+            <span className={styles.form_error}>
+              {errors?.password?.message}
+            </span>
+          )}
+        </div>
       </div>
 
-      <button>{title}</button>
+      <button type="submit">{title}</button>
+      {firebaseError && (
+        <span className={styles.form_error}>{firebaseError}</span>
+      )}
     </form>
   );
 };
