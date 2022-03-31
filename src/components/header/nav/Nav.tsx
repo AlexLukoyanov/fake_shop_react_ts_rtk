@@ -1,4 +1,4 @@
-import { FiShoppingCart, FiUser } from "react-icons/fi";
+import { FiLogIn, FiShoppingCart, FiUser } from "react-icons/fi";
 import styles from "./Nav.module.scss";
 import { Link } from "react-router-dom";
 import NavCartBlock from "./nav-cart-block/NavCartBlock";
@@ -24,7 +24,10 @@ const Nav = () => {
           </div>
         </li>
         <li>
-          <FiUser />
+          {/* <FiUser /> */}
+          <Link to={"/login"}>
+            <FiLogIn />
+          </Link>{" "}
         </li>
       </ul>
     </nav>

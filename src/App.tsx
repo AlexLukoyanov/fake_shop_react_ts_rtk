@@ -3,6 +3,8 @@ import Layout from "./components/layout/Layout";
 import HomePage from "./pages/home-page/HomePage";
 import CardPage from "./pages/card-page/CardPage";
 import CartPage from "./pages/cart-page/CartPage";
+import LoginPage from "./pages/login-page/LoginPage";
+import RegistrationPage from "./pages/registration-page/RegistrationPage";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="card/:id" element={<CardPage />} />
           <Route path="cart" element={<CartPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="registration" element={<RegistrationPage />} />
         </Route>
       </Routes>
     </div>
