@@ -2,7 +2,6 @@
   "name": "fake_shop",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alexlukoyanov.github.io/fake_store_react_ts_rtk/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "@testing-library/jest-dom": "^5.16.2",
