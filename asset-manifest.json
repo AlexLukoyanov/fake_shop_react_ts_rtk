@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fake_store_react_ts_rtk/static/css/main.4fae5466.css",
+    "main.js": "/fake_store_react_ts_rtk/static/js/main.89d3af9d.js",
+    "index.html": "/fake_store_react_ts_rtk/index.html",
+    "main.4fae5466.css.map": "/fake_store_react_ts_rtk/static/css/main.4fae5466.css.map",
+    "main.89d3af9d.js.map": "/fake_store_react_ts_rtk/static/js/main.89d3af9d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4fae5466.css",
+    "static/js/main.89d3af9d.js"
+  ]
+}
