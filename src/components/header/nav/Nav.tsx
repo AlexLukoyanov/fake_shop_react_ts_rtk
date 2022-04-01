@@ -19,7 +19,7 @@ const Nav = () => {
 
   useEffect(() => {
     dispatch(fetchOrder(id));
-  }, [id, dispatch]);
+  }, []);
 
   const handleSignOut = () => {
     dispatch(removeUser());
@@ -57,7 +57,7 @@ const Nav = () => {
                 <FiUser title="Orders" />
               </Link>
             )}
-            {order.length > 0 && <b>{order.length}</b>}
+            {isAuth && order.length && <b>{order.length}</b>}
           </div>
         </li>
         <li>
