@@ -20,28 +20,6 @@
       background: #f1eadc;
     }
 
-    button {
-      display: block;
-      padding: 20px 50px;
-      color: #6e9c9f;
-      font-weight: 400;
-      font-size: 17px;
-      background: #fff;
-      border: 1px solid #6e9c9f;
-      cursor: pointer;
-      transition: 0.3s all ease;
-
-      &:hover {
-        color: #fff;
-        background: #509498;
-      }
-
-      &:disabled {
-        color: #ffff;
-        background: #509498;
-      }
-    }
-
     @media (min-width: 510px) {
       flex-direction: row;
       justify-content: end;
@@ -58,10 +36,32 @@
           margin-right: 30px;
         }
       }
-
-      button {
-        padding: 20px 50px;
-      }
     }
+  }
+}
+
+.checkout_button {
+  display: block;
+  padding: 20px 50px;
+  color: #6e9c9f;
+  font-weight: 400;
+  font-size: 17px;
+  background: #fff;
+  border: 1px solid #6e9c9f;
+  cursor: pointer;
+  transition: 0.3s all ease;
+
+  &:hover {
+    color: #fff;
+    background: #509498;
+  }
+
+  &:disabled {
+    color: #ffff;
+    background: #509498;
+  }
+
+  @media (min-width: 510px) {
+    padding: 20px 50px;
   }
 }

@@ -7,7 +7,7 @@ export const postOrder = createAsyncThunk(
   async (order: CartState, thunkApi) => {
     try {
       await axios.post(
-        "https://623df75fdf20a75d53c246ae.mockapi.io/order",
+        "https://623df75fdf20a75d53c246ae.mockapi.io/orders",
         order
       );
 
@@ -101,7 +101,7 @@ export const cartSlice = createSlice({
     },
     sendOrder: (state) => {
       state.products = [];
-      localStorage.setItem("cartItems", JSON.stringify(state));
+      localStorage.setItem("cartProducts", JSON.stringify(state.products));
     },
   },
 });

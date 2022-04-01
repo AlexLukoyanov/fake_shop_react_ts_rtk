@@ -4,10 +4,14 @@ import { useEffect } from "react";
 import { useAppDispatch } from "./../../../hooks/redux";
 import { getTotalPrice } from "../../../store/cart/cart.slice";
 import { postOrder } from "./../../../store/cart/cart.slice";
+import { Link } from "react-router-dom";
+import { useAuth } from "./../../../hooks/useAuth";
 
 const Checkout = () => {
   const cart = useAppSelector((state) => state.cartSlice);
+
   const dispatch = useAppDispatch();
+  const { isAuth } = useAuth();
   useEffect(() => {
     dispatch(getTotalPrice());
   }, [cart]);
@@ -22,7 +26,18 @@ const Checkout = () => {
           {" "}
           <span>Total:</span> $ {cart.totalPrice.toFixed(2)}
         </p>
-        <button onClick={() => sendOrder()}>Checkout</button>
+        {isAuth ? (
+          <button
+            className={styles.checkout_button}
+            onClick={() => sendOrder()}
+          >
+            Checkout
+          </button>
+        ) : (
+          <Link className={styles.checkout_button} to={"/login"}>
+            Sign in
+          </Link>
+        )}
       </div>
     </div>
   );

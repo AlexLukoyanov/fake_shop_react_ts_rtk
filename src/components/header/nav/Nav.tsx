@@ -8,11 +8,18 @@ import { useAuth } from "./../../../hooks/useAuth";
 import { useAppDispatch } from "./../../../hooks/redux";
 import { removeUser } from "../../../store/user/userSlice";
 import { removeUserId } from "../../../store/cart/cart.slice";
+import { useEffect } from "react";
+import { fetchOrder } from "./../../../store/order/orderSlice";
 
 const Nav = () => {
   const { products } = useAppSelector((state) => state.cartSlice);
-  const { isAuth } = useAuth();
+  const { order } = useAppSelector((state) => state.orderSlice);
+  const { isAuth, id } = useAuth();
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchOrder(id));
+  }, [id, dispatch]);
 
   const handleSignOut = () => {
     dispatch(removeUser());
@@ -42,7 +49,17 @@ const Nav = () => {
             )}
           </div>
         </li>
-        <li>{isAuth && <FiUser />}</li>
+        <li>
+          <div className={styles.counter}>
+            {isAuth && (
+              <Link to={"/order"}>
+                {" "}
+                <FiUser title="Orders" />
+              </Link>
+            )}
+            {order.length > 0 && <b>{order.length}</b>}
+          </div>
+        </li>
         <li>
           {isAuth ? (
             <GoSignOut

@@ -33,7 +33,7 @@ const initialState: OrderState = {
 };
 
 export const orderSlice = createSlice({
-  name: "oreder",
+  name: "order",
   initialState,
   reducers: {},
   extraReducers: {
