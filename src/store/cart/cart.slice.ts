@@ -13,7 +13,7 @@ export const postOrder = createAsyncThunk(
 
       thunkApi.dispatch(sendOrder());
     } catch (e) {
-      return thunkApi.rejectWithValue("Уrror sending order");
+      return thunkApi.rejectWithValue("Error sending order");
     }
   }
 );
