@@ -6,11 +6,11 @@ export const fetchFilteredProducts = createAsyncThunk(
   "filteredProducts/fetchFilteredProducts",
   async (category: string, thunkAPI) => {
     try {
-      const responce = await axios.get<IProduct[]>(
+      const response = await axios.get<IProduct[]>(
         `https://fakestoreapi.com/products/category/${category}`
       );
 
-      return responce.data;
+      return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue("Error loading products");
     }

@@ -22,12 +22,12 @@
 
     @media (min-width: 510px) {
       flex-direction: row;
-      justify-content: end;
+      justify-content: flex-end;
       width: 100%;
 
       p {
         display: flex;
-        justify-content: start;
+        justify-content: flex-start;
         margin-right: 30px;
         margin-bottom: 0;
         padding: 20px 50px;

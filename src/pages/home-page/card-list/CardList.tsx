@@ -14,7 +14,7 @@ type CardListProps = {
 const CardList: FC<CardListProps> = ({ limitProducts }) => {
   const dispatch = useAppDispatch();
   const { products } = useAppSelector((state) => state.productsSlice);
-  const { filteredProducts, isLoading } = useAppSelector(
+  const { filteredProducts } = useAppSelector(
     (state) => state.filteredProductsSlice
   );
   const category = useAppSelector((state) => state.categoriesSlice);
@@ -28,7 +28,7 @@ const CardList: FC<CardListProps> = ({ limitProducts }) => {
     <ul className={styles.card_list}>
       {category === "" ? (
         products.map((item) => <CardItem key={item.id} item={item} />)
-      ) : !isLoading ? (
+      ) : !filteredProducts ? (
         <Loader />
       ) : (
         filteredProducts.map((item) => <CardItem key={item.id} item={item} />)
