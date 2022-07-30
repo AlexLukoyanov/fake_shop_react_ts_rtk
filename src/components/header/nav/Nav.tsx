@@ -57,7 +57,7 @@ const Nav = () => {
                 <FiUser title="Orders" />
               </Link>
             )}
-            {isAuth && order.length && <b>{order.length}</b>}
+            {isAuth && <b>{order.length}</b>}
           </div>
         </li>
         <li>
